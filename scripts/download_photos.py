@@ -30,7 +30,9 @@ for item in MANIFEST['images']:
   author=clean(meta.get('Artist',{}).get('value','Unknown'))
   if not path.exists():
    raw=get(info.get('thumburl') or info['url']);im=ImageOps.exif_transpose(Image.open(BytesIO(raw))).convert('RGB')
-   im.thumbnail((1200,800));im.save(path,'WEBP',quality=79,method=5)
+   # Uniform 16:10 editorial image, landscape focus with centered crop
+   im=ImageOps.fit(im,(1280,800),method=Image.Resampling.LANCZOS,centering=(0.5,0.48))
+   im.save(path,'WEBP',quality=82,method=6)
   print(f"OK {item['id']}: {path.stat().st_size//1024} KB, {license}")
   credits.append(f"- **{item['title']}** — {author}; {license}; [источник]({item['source']}); адаптация: уменьшение и WebP.\n")
  except Exception as exc:
