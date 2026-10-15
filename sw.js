@@ -1,19 +1,12 @@
-const CACHE='china-family-quest-v9-3-blue';
-const PHOTO_CACHE='china-family-quest-photos-v1';
+const CACHE='china-family-quest-v9-4-blue';
+const PHOTO_CACHE='china-family-quest-photos-v2';
 const CORE=['./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./images/manifest.json'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const c=await caches.open(CACHE);await c.addAll(CORE.map(p=>new Request(p,{cache:'reload'})));await self.skipWaiting();
 })()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
  const keys=await caches.keys();
- // Preserve old photo caches and migrate photos when available.
- const p=await caches.open(PHOTO_CACHE);
- for(const key of keys.filter(n=>n.startsWith('china-family-quest-')&&n!==CACHE&&n!==PHOTO_CACHE)){
-   const old=await caches.open(key);for(const req of await old.keys()){
-    if(!new URL(req.url).pathname.match(/\/images\/[^/]+\.webp$/))continue;
-    const res=await old.match(req);if(res?.ok&&res.headers.get('content-type')?.startsWith('image/'))await p.put(req,res);
-   }
- }
+ // Do not migrate legacy images into the new curated image cache.
  await Promise.all(keys.filter(n=>n.startsWith('china-family-quest-')&&n!==CACHE&&n!==PHOTO_CACHE).map(n=>caches.delete(n)));
  await self.clients.claim();
  // Fire background cache download without blocking activation.
