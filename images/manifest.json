@@ -1,0 +1,71 @@
+{
+  "version": "v7",
+  "images": [
+    {
+      "id": "jing",
+      "file": "jing.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Jing'an_Temple.jpg",
+      "title": "Jing’an Temple"
+    },
+    {
+      "id": "kerry",
+      "file": "kerry.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Oliver_Peoples_Boutique_in_Kerry_Centre_Jing'an_Shanghai.jpg",
+      "title": "Jing’an Kerry Centre (магазин внутри)"
+    },
+    {
+      "id": "nanjing",
+      "file": "nanjing.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:NanjingRoadPedestrianStreet.JPG",
+      "title": "Nanjing Road"
+    },
+    {
+      "id": "disney",
+      "file": "disney.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Shanghai_Disneyland_Castle.jpg",
+      "title": "Shanghai Disneyland"
+    },
+    {
+      "id": "trees",
+      "file": "trees.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:1000_Trees_20251127.jpg",
+      "title": "1000 Trees"
+    },
+    {
+      "id": "columbia",
+      "file": "columbia.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Columbia_Circle_26.jpg",
+      "title": "Columbia Circle"
+    },
+    {
+      "id": "westlake",
+      "file": "westlake.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:West_Lake_2025.jpg",
+      "title": "West Lake"
+    },
+    {
+      "id": "longjing",
+      "file": "longjing.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Tea_plantations_in_Longjing,_Hangzhou.jpg",
+      "title": "Longjing tea village"
+    },
+    {
+      "id": "yuyuan",
+      "file": "yuyuan.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Shanghai_Yu_Garden.jpg",
+      "title": "Yu Garden"
+    },
+    {
+      "id": "bund",
+      "file": "bund.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Shanghai_skyline_from_the_bund.jpg",
+      "title": "The Bund"
+    },
+    {
+      "id": "green",
+      "file": "green.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:Expo_Cultural_Park_Greenhouse_20251129.jpg",
+      "title": "Greenhouse Garden"
+    }
+  ]
+}

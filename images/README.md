@@ -1,0 +1,1 @@
+Фото загружаются автоматически через GitHub Actions из Wikimedia Commons. Файлы *.webp появляются после успешного выполнения Download location photos. Авторство и лицензии: ATTRIBUTION.md. Для lv, zzer, huaihai фото пока не подобраны; не подменять другой локацией.
