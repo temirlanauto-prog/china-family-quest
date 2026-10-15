@@ -6,7 +6,7 @@ from PIL import Image, ImageOps
 from io import BytesIO
 ROOT=Path(__file__).resolve().parent.parent
 MANIFEST=json.loads((ROOT/'images'/'manifest.json').read_text(encoding='utf8'))
-AGENT='ChinaFamilyQuestOfflinePhotoCache/1.0 (personal travel guide; contact via GitHub repository)'
+AGENT='ChinaFamilyQuestOfflinePhotoCache/1.1 (https://github.com/temirlanauto-prog/china-family-quest)'
 
 def get(url):
  req=urllib.request.Request(url,headers={'User-Agent':AGENT,'Accept':'application/json,image/*,*/*'})
@@ -26,7 +26,7 @@ for item in MANIFEST['images']:
   meta=info.get('extmetadata',{})
   license=clean(meta.get('LicenseShortName',{}).get('value',''))
   allowed=any(c in license.upper() for c in ('CC','PUBLIC DOMAIN','PD'))
-  if not allowed:raise RuntimeError('Not recognized as freely licensed: '+license)
+  if not allowed:raise RuntimeError('License needs review: '+(license or 'missing'))
   author=clean(meta.get('Artist',{}).get('value','Unknown'))
   if not path.exists():
    raw=get(info.get('thumburl') or info['url']);im=ImageOps.exif_transpose(Image.open(BytesIO(raw))).convert('RGB')
@@ -40,6 +40,11 @@ for item in MANIFEST['images']:
  time.sleep(.3)
 (ROOT/'images'/'ATTRIBUTION.md').write_text('# Фотографии: авторство и лицензии\n\n'+''.join(credits),encoding='utf8')
 print(f'Complete: {len(credits)}/{len(MANIFEST["images"])}')
+(ROOT/'images'/'DOWNLOAD_STATUS.md').write_text(
+ '# Статус загрузки фотографий\n\n'+
+ f'Успешно: **{len(credits)} / {len(MANIFEST["images"])}**\n\n'+
+ ('## Требуют проверки\n\n'+''.join('- '+e+'\n' for e in errors) if errors else 'Все фотографии обработаны.\n'), encoding='utf8')
 if errors:
  print('Unresolved: '+'; '.join(errors),file=sys.stderr)
- sys.exit(1)
+ # Do not block the subsequent GitHub commit: partial photos still must be published.
+
