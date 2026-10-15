@@ -1,4 +1,4 @@
-const CACHE='china-family-quest-v7-blue';
+const CACHE='china-family-quest-v8-blue';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./images/manifest.json'];
 async function cachePhotos(){const cache=await caches.open(CACHE);let manifest;try{let r=await fetch('./images/manifest.json',{cache:'no-store'});if(!r.ok)return;await cache.put('./images/manifest.json',r.clone());manifest=await r.json();}catch{return}
 let successes=0;for(const item of manifest.images||[]){const url='./images/'+item.file;try{let cached=await cache.match(url);if(cached?.ok){successes++;continue}let response=await fetch(url);if(response.ok&&response.headers.get('content-type')?.startsWith('image/')){await cache.put(url,response.clone());successes++}}catch(e){console.warn('Photo not cached:',url,e)}}return successes}
