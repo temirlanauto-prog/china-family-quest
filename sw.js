@@ -1,4 +1,4 @@
-const CACHE='china-family-quest-v9-4-blue';
+const CACHE='china-family-quest-v10-blue';
 const PHOTO_CACHE='china-family-quest-photos-v2';
 const CORE=['./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./images/manifest.json'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
