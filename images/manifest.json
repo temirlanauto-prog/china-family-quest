@@ -1,118 +1,44 @@
 {
-  "version": "v9.4",
-  "kind": "AI-generated editorial illustrations (not location photographs)",
-  "images": [
-    {
-      "id": "jing",
-      "file": "jing.webp",
-      "title": "Jing’an Temple",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "kerry",
-      "file": "kerry.webp",
-      "title": "Jing’an Kerry Centre",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "lv",
-      "file": "lv.webp",
-      "title": "The Louis",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "nanjing",
-      "file": "nanjing.webp",
-      "title": "Nanjing Road",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "disney",
-      "file": "disney.webp",
-      "title": "Shanghai Disneyland",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "trees",
-      "file": "trees.webp",
-      "title": "1000 Trees",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "columbia",
-      "file": "columbia.webp",
-      "title": "Columbia Circle",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "westlake",
-      "file": "westlake.webp",
-      "title": "West Lake",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "longjing",
-      "file": "longjing.webp",
-      "title": "Longjing tea village",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "yuyuan",
-      "file": "yuyuan.webp",
-      "title": "Yu Garden",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "bund",
-      "file": "bund.webp",
-      "title": "The Bund",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "green",
-      "file": "green.webp",
-      "title": "Greenhouse Garden",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "zzer",
-      "file": "zzer.webp",
-      "title": "ZZER",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    },
-    {
-      "id": "huaihai",
-      "file": "huaihai.webp",
-      "title": "TX Huaihai",
-      "source": "Generated editorial illustration",
-      "license": "AI-generated visual; no external photo source",
-      "is_documentary_photo": false
-    }
-  ]
+  "version": "v11",
+  "photo_ids": [
+    "jing",
+    "kerry",
+    "lv",
+    "nanjing",
+    "disney",
+    "trees",
+    "columbia",
+    "westlake",
+    "longjing",
+    "yuyuan",
+    "bund",
+    "green",
+    "zzer",
+    "huaihai",
+    "science",
+    "applaza",
+    "wild",
+    "outlet",
+    "tower",
+    "aquarium",
+    "k11",
+    "huaihaicenter",
+    "expo",
+    "zoo",
+    "botanical",
+    "pudong",
+    "feilai",
+    "lingyin",
+    "leifeng",
+    "huxueyan",
+    "xixi",
+    "songcheng"
+  ],
+  "extensions": [
+    "jpg",
+    "jpeg",
+    "png",
+    "webp"
+  ],
+  "description": "Upload your own photos as id.webp, id.jpg, id.jpeg, or id.png; one file per id."
 }
