@@ -1,7 +1,4 @@
-China Family Quest v9.4 · Travel Editorial illustrations
+China Family Quest v13 — Flexible Routes + Minimal Chinese Photo Recap
 
-В папке images/ находятся 14 настоящих файлов WebP (генеративные иллюстрации, НЕ документальные фотографии локаций).
-
-Обновление: загрузить содержимое ZIP в корень GitHub репозитория, подтвердить Commit, проверить v9.4. PWA загрузит изображения в офлайн-кэш при открытии с интернетом.
-
-Папки scripts/ и .github/workflows/photos.yml больше не нужны. Данные localStorage не очищаются; перед обновлением сохраните JSON.
+Открой README_V13_RU.md и PHOTO_FILENAMES.txt.
+Запусти index.html через GitHub Pages; данные браузера сохраняются как прежде.
