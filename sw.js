@@ -1,12 +1,12 @@
-const CACHE='china-family-quest-v11-blue';
-const PHOTO_CACHE='china-family-quest-photos-v3';
+const CACHE='china-family-quest-v11-navigation';
+const PHOTO_CACHE='china-family-quest-photos-v2';
 const CORE=['./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./images/manifest.json'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const c=await caches.open(CACHE);await c.addAll(CORE.map(p=>new Request(p,{cache:'reload'})));await self.skipWaiting();
 })()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
  const keys=await caches.keys();
- // A new photo cache prevents old generated images from shadowing replacements.
+ // Do not migrate legacy images into the new curated image cache.
  await Promise.all(keys.filter(n=>n.startsWith('china-family-quest-')&&n!==CACHE&&n!==PHOTO_CACHE).map(n=>caches.delete(n)));
  await self.clients.claim();
  // Fire background cache download without blocking activation.
@@ -20,20 +20,13 @@ async function cachePhotos(){
  let manifest;
  try{const r=await fetch('./images/manifest.json',{cache:'no-store'});if(!r.ok)return;manifest=await r.json()}catch{return}
  const cache=await caches.open(PHOTO_CACHE);
- const ids=manifest.photo_ids||[];
- const ext=manifest.extensions||['jpg','jpeg','png','webp'];
- await Promise.allSettled(ids.map(async id=>{
-  if(!/^[a-z0-9_-]+$/i.test(id))return;
-  for(const suffix of ext){
-   if(!/^(webp|jpg|jpeg|png)$/.test(suffix))continue;
-   const url=new URL('./images/'+id+'.'+suffix,self.registration.scope).href;
-   try{
-    let response=await cache.match(url);
-    if(response?.ok&&response.headers.get('content-type')?.startsWith('image/'))return;
-    response=await fetch(url,{cache:'no-store'});
-    if(response.ok&&response.headers.get('content-type')?.startsWith('image/')){await cache.put(url,response.clone());return}
-   }catch{}
-  }
+ await Promise.allSettled((manifest.images||[]).map(async item=>{
+  if(!/^[a-z0-9_-]+\.webp$/i.test(item.file))return;
+  const url=new URL('./images/'+item.file,self.registration.scope).href;
+  const prev=await cache.match(url);
+  if(prev?.ok&&prev.headers.get('content-type')?.startsWith('image/'))return;
+  const res=await fetch(url,{cache:'no-store'});
+  if(res.ok&&res.headers.get('content-type')?.startsWith('image/'))await cache.put(url,res.clone());
  }));
 }
 self.addEventListener('fetch',event=>{
@@ -42,7 +35,7 @@ self.addEventListener('fetch',event=>{
  if(req.mode==='navigate'){
   event.respondWith((async()=>{const c=await caches.open(CACHE);try{const r=await fetch(req,{cache:'no-store'});if(r.ok)await c.put('./index.html',r.clone());return r}catch{return await c.match('./index.html')||Response.error()}})());return;
  }
- if(/\/images\/[^/]+\.(webp|jpe?g|png)$/i.test(u.pathname)){
+ if(/\/images\/[^/]+\.webp$/.test(u.pathname)){
   event.respondWith((async()=>{
     const photo=await caches.open(PHOTO_CACHE),c=await caches.open(CACHE);
     const saved=await photo.match(req)||await c.match(req);
