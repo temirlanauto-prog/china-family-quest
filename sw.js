@@ -1,6 +1,6 @@
-const CACHE='china-family-quest-v11-navigation';
-const PHOTO_CACHE='china-family-quest-photos-v2';
-const CORE=['./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./images/manifest.json'];
+const CACHE='china-family-quest-v12-neo-chinese';
+const PHOTO_CACHE='china-family-quest-photos-v12';
+const CORE=['./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./images/manifest.json','./images/photo-filenames.json'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const c=await caches.open(CACHE);await c.addAll(CORE.map(p=>new Request(p,{cache:'reload'})));await self.skipWaiting();
 })()));
@@ -18,8 +18,9 @@ self.addEventListener('message',event=>{
 });
 async function cachePhotos(){
  let manifest;
- try{const r=await fetch('./images/manifest.json',{cache:'no-store'});if(!r.ok)return;manifest=await r.json()}catch{return}
+ try{const r=await fetch('./images/manifest.json','./images/photo-filenames.json',{cache:'no-store'});if(!r.ok)return;manifest=await r.json()}catch{return}
  const cache=await caches.open(PHOTO_CACHE);
+ try{let files=await (await fetch('./images/photo-filenames.json',{cache:'no-store'})).json();await Promise.allSettled(files.map(async file=>{if(!/^[a-z0-9_-]+\.jpg$/i.test(file))return;const url=new URL('./images/'+file,self.registration.scope).href;if(await cache.match(url))return;let r=await fetch(url,{cache:'no-store'});if(r.ok&&r.headers.get('content-type')?.startsWith('image/'))await cache.put(url,r.clone())}))}catch(e){}
  await Promise.allSettled((manifest.images||[]).map(async item=>{
   if(!/^[a-z0-9_-]+\.webp$/i.test(item.file))return;
   const url=new URL('./images/'+item.file,self.registration.scope).href;
@@ -35,7 +36,7 @@ self.addEventListener('fetch',event=>{
  if(req.mode==='navigate'){
   event.respondWith((async()=>{const c=await caches.open(CACHE);try{const r=await fetch(req,{cache:'no-store'});if(r.ok)await c.put('./index.html',r.clone());return r}catch{return await c.match('./index.html')||Response.error()}})());return;
  }
- if(/\/images\/[^/]+\.webp$/.test(u.pathname)){
+ if(/\/images\/[^/]+\.(?:webp|jpg|jpeg|png)$/i.test(u.pathname)){
   event.respondWith((async()=>{
     const photo=await caches.open(PHOTO_CACHE),c=await caches.open(CACHE);
     const saved=await photo.match(req)||await c.match(req);

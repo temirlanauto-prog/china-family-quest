@@ -1,0 +1,56 @@
+CHINA FAMILY QUEST v12 · НАЗВАНИЯ ФОТОГРАФИЙ
+
+Скопируй свои JPG-фотографии в /images с ТОЧНЫМИ именами ниже.
+Регистр, расширение .jpg и буквы должны совпадать.
+Сначала сайт пытается показать JPG, затем для первых мест — имеющиеся WebP.
+
+=== ИЗ ТВОЕГО ПРЕДЫДУЩЕГО СПИСКА (32) ===
+jing.jpg — Jing’an Temple
+kerry.jpg — Jing’an Kerry Centre
+lv.jpg — The Louis · HKRI Taikoo Hui
+nanjing.jpg — Nanjing Road
+disney.jpg — Shanghai Disneyland
+trees.jpg — 1000 Trees
+columbia.jpg — Columbia Circle
+westlake.jpg — West Lake
+longjing.jpg — Longjing Tea Village
+yuyuan.jpg — Yu Garden
+bund.jpg — The Bund
+green.jpg — Shanghai Greenhouse Garden
+zzer.jpg — ZZER Hongqiao Tiandi
+huaihai.jpg — TX Huaihai
+science.jpg — Shanghai Science and Technology Museum
+applaza.jpg — AP Plaza · Fake Market
+wild.jpg — Shanghai Wild Animal Park
+outlet.jpg — Bailian Outlet Plaza Qingpu
+tower.jpg — Shanghai Tower
+aquarium.jpg — Shanghai Ocean Aquarium
+k11.jpg — Shanghai K11 Shopping Art Center
+huaihaicenter.jpg — Huaihai Center
+expo.jpg — World Expo Cultural Park
+zoo.jpg — Shanghai Zoo
+botanical.jpg — Shanghai Botanical Garden
+pudong.jpg — Shanghai Pudong New Area
+feilai.jpg — Feilai Peak
+lingyin.jpg — Lingyin Temple
+leifeng.jpg — Leifeng Pagoda
+huxueyan.jpg — Former Residence of Hu Xueyan
+xixi.jpg — Xixi National Wetland Park
+songcheng.jpg — Songcheng Theme Park
+
+=== НОВЫЕ ЛОКАЦИИ (13) ===
+spa.jpg — SPA — комплекс уточняется
+hubin.jpg — Hubin Pedestrian Street, Hangzhou
+fountain.jpg — West Lake Musical Fountain, Hangzhou
+matcha.jpg — Matcha Lake · Qingshan Lake Water Forest, Hangzhou
+hefang.jpg — Hefang Street · Qinghefang, Hangzhou
+history.jpg — Shanghai Natural History Museum
+children.jpg — Shanghai Children’s Museum
+lego.jpg — LEGOLAND Discovery Center Shanghai
+ins.jpg — INS Fuxing Park
+captain.jpg — Captain Bar
+roof.jpg — ROOF · The Shanghai EDITION
+flair.jpg — Flair · The Ritz-Carlton Shanghai Pudong
+wet.jpg — WET BAR · W Shanghai
+
+Итого: 45 имён.
